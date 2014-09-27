@@ -9,4 +9,6 @@ github_username:  Tom_Kuhn
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+highlighter: pygments.rb
+
+#gem settings
