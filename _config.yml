@@ -5,10 +5,13 @@ description: Software craftsmanship by design
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.artisancode.co.uk" # the base hostname & protocol for your site
 twitter_username: Tom_Kuhn
-github_username:  Tom_Kuhn
+github_username:  Tom-Kuhn
 
 # Build settings
 markdown: kramdown
 highlighter: pygments.rb
+permalink: pretty
+paginate: 5
+exclude: ["node_modules"]
 
 #gem settings
