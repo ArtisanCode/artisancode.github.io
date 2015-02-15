@@ -8,7 +8,7 @@
 body {
 	.brandfont;
 	font-size: 20px;
-	color: @brand-light;
+	color: @brand-primary-light;
 }
 
 // -- Typography
@@ -32,7 +32,7 @@ h6 {
 }
 
 a {
-	color: @brand-light;
+	color: @brand-primary-light;
 	&:hover,
 	&:focus {
 		color: @brand-primary;
@@ -55,13 +55,13 @@ hr.small {
 	max-width: 100px;
 	margin: 15px auto;
 	border-width: 4px;
-	border-color: white;
+	border-color: @brand-secondary;
 }
 
 // Navigation
 
 .navbar-custom {
-	background: white;
+	background: @brand-secondary;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -69,15 +69,40 @@ hr.small {
 	z-index: 3;
 	.brandfont;
 	.navbar-brand {
-		font-weight: 800;
+		font-weight: 300;
 	}
 	.nav {
 		li {
 			a {
 				text-transform: uppercase;
 				font-size: 12px;
-				font-weight: 800;
+				font-weight: 300;
 				letter-spacing: 1px;
+			}
+		}
+	}
+	@media only screen and (max-width: 768px) {
+		background: @brand-primary;
+		border-bottom: 0px;
+		.navbar-brand {
+			color: @brand-primary;
+			padding: 20px;
+			.brandfont;
+			&:hover,
+			&:focus {
+				color: @brand-secondary-faded;
+			}
+		}
+		.nav {
+			li {
+				a {
+					color: @brand-secondary;
+					padding: 20px;
+					&:hover,
+					&:focus {
+						color: @brand-secondary-faded;
+					}
+				}
 			}
 		}
 	}
@@ -85,21 +110,22 @@ hr.small {
 		background: transparent;
 		border-bottom: 1px solid transparent;
 		.navbar-brand {
-			color: white;
+			color: @brand-primary;
 			padding: 20px;
+			.brandfont;
 			&:hover,
 			&:focus {
-				color: @white-faded;
+				color: @brand-secondary-faded;
 			}
 		}
 		.nav {
 			li {
 				a {
-					color: white;
+					color: @brand-secondary;
 					padding: 20px;
 					&:hover,
 					&:focus {
-						color: @white-faded;
+						color: @brand-secondary-faded;
 					}
 				}
 			}
@@ -121,13 +147,13 @@ hr.small {
 			/* when the user scrolls down, we hide the header right above the viewport */
 			position: fixed;
 			top: -61px;
-			background-color: fade(white, 90%);
-			border-bottom: 1px solid darken(white, 5%);
+			background-color: fade(@brand-secondary, 90%);
+			border-bottom: 1px solid darken(@brand-secondary, 5%);
 			-webkit-transition: -webkit-transform 0.3s;
 			-moz-transition: -moz-transform 0.3s;
 			transition: transform 0.3s;
 			.navbar-brand {
-				color: @brand-light;
+				color: @brand-primary-light;
 				&:hover,
 				&:focus {
 					color: @brand-primary;
@@ -136,7 +162,7 @@ hr.small {
 			.nav {
 				li {
 					a {
-						color: @brand-light;
+						color: @brand-primary-light;
 						&:hover,
 						&:focus {
 							color: @brand-primary;
@@ -159,19 +185,15 @@ hr.small {
 // Header
 
 .intro-header {
-	background-color: @gray;
-	background: no-repeat center center;
-	background-attachment: scroll;
-	.background-cover;
-	// NOTE: Background images are set within the HTML using inline CSS!
+	background-color: @brand-primary;
 	margin-bottom: 50px;
 	.site-heading,
 	.post-heading,
 	.page-heading {
 		padding: 100px 0 50px;
-		color: white;
+		color: @brand-secondary;
 		@media only screen and (min-width: 768px) {
-			padding: 150px 0;
+			padding: 100px 0;
 		}
 	}
 	.site-heading,
@@ -179,15 +201,21 @@ hr.small {
 		text-align: center;
 		h1 {
 			margin-top: 0;
+			margin-bottom: 0px;
 			font-size: 50px;
+			.brandfont-light;
+			font-weight: 200;
+			a{
+				color: @brand-secondary;
+				text-decoration: none;
+			}
 		}
 		.subheading {
-			font-size: 24px;
-			line-height: 1.1,
+			font-size: 22px;
+			line-height: 1,
 			display: block;
-			.brandfont;
-			font-weight: 300;
-			margin: 10px 0 0;
+			.brandfont-light;
+			font-weight: 200;
 		}
 		@media only screen and (min-width: 768px) {
 			h1 {
@@ -216,7 +244,7 @@ hr.small {
 			font-weight: 300;
 			font-size: 20px;
 			a {
-				color: white;
+				color: @brand-secondary;
 			}
 		}
 		@media only screen and (min-width: 768px) {
@@ -234,7 +262,7 @@ hr.small {
 
 .post-preview {
 	> a {
-		color: @brand-light;
+		color: @brand-primary-light;
 		&:hover,
 		&:focus {
 			text-decoration: none;
@@ -258,7 +286,7 @@ hr.small {
 		margin-top: 0;
 		> a {
 			text-decoration: none;
-			color: @brand-light;
+			color: @brand-primary-light;
 			&:hover,
 			&:focus {
 				color: @brand-primary;
@@ -389,7 +417,7 @@ form .row:first-child .floating-label-form-group {
 	&:focus {
 		background-color: @brand-primary;
 		border: 1px solid @brand-primary;
-		color: white;
+		color: @brand-secondary;
 	}
 }
 
@@ -408,7 +436,7 @@ form .row:first-child .floating-label-form-group {
 			font-weight: 800;
 			letter-spacing: 1px;
 			padding: 15px 10px;
-			background-color: white;
+			background-color: @brand-secondary;
 			border-radius: 0;
 			@media only screen and (min-width: 768px) {
 				font-size: 14px;
@@ -418,7 +446,7 @@ form .row:first-child .floating-label-form-group {
 
 		> a:hover,
 		> a:focus {
-			color: white;
+			color: @brand-secondary;
 			background-color: @brand-primary;
 			border: 1px solid @brand-primary;
 		}
@@ -430,7 +458,7 @@ form .row:first-child .floating-label-form-group {
 		> a:focus,
 		> span {
 			color: @gray;
-			background-color: @brand-light;
+			background-color: @brand-primary-light;
 			cursor: not-allowed;
 		}
 	}
@@ -439,24 +467,24 @@ form .row:first-child .floating-label-form-group {
 // -- Highlight Color Customization
 
 ::-moz-selection {
-	color: white;
+	color: @brand-secondary;
 	text-shadow: none;
 	background: @brand-primary;
 }
 
 ::selection {
-	color: white;
+	color: @brand-secondary;
 	text-shadow: none;
 	background: @brand-primary;
 }
 
 img::selection {
-	color: white;
+	color: @brand-secondary;
 	background: transparent;
 }
 
 img::-moz-selection {
-	color: white;
+	color: @brand-secondary;
 	background: transparent;
 }
 

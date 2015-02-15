@@ -1,5 +1,5 @@
 # Site settings
-title: Artisan Code
+title: ARTISAN CODE
 email: tom@artisancode.co.uk
 description: Software craftsmanship by design
 baseurl: "" # the subpath of your site, e.g. /blog/
@@ -9,7 +9,7 @@ github_username:  Tom-Kuhn
 
 # Build settings
 markdown: kramdown
-highlighter: pygments.rb
+highlighter: pygments
 permalink: pretty
 paginate: 5
 exclude: ["node_modules"]
