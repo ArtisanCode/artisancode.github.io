@@ -3,9 +3,9 @@ title: Aspect orientated programming for fun and profit
 author: Tom Kuhn
 excerpt: |
   What is AOP (Aspect orientated programming)?
-  
-  Before we kick off a quick delve into Aspect orientated programming, it would be good to make sure that we're all on the same page with regards to what we mean by the term AOP. There are quite a few references that you can use in order to define AOP, but for the purposes of this article, we'll use the following definition: A module that intercepts a call to a function in order to apply cross-cutting-concern functionality in a consistent manner either before or after the call. But what does this actually mean? 
-  
+
+  Before we kick off a quick delve into Aspect orientated programming, it would be good to make sure that we're all on the same page with regards to what we mean by the term AOP. There are quite a few references that you can use in order to define AOP, but for the purposes of this article, we'll use the following definition: A module that intercepts a call to a function in order to apply cross-cutting-concern functionality in a consistent manner either before or after the call. But what does this actually mean?
+
   Carry on reading to find out...
 layout: post
 permalink: /2014/07/aspect-orientated-programming/
@@ -51,18 +51,18 @@ This is just the sort of &#8216;enterprisey&#8217; suite of requirements that ex
 
 Just try and imagine for a moment if you were the developer in question who was asked to write this feature. Try to imagine what the code would look like if you followed option one. Fortunately, you don&#8217;t need to try very hard because I have written a little sample which isn&#8217;t based on any actual code, but it is indicative of the style of programming prevalent within many organisations. This can be seen below
 
-#### All cross-cutting concerns &#038; requirements existing in one function:<div class = "panel panel-warning"> 
+#### All cross-cutting concerns &#038; requirements existing in one function:<div class = "panel panel-warning">
 
 <div class="panel-body">
   <i class="fa fa-exclamation-circle fa-3"></i> Please note that I <strong><em>absolutely DO NOT</em></strong> advocate this style of programming, rather it it merely an indicative representation of the type of code that is commonly found floating around large enterprise code-bases
-</div></div> [csharp] using System;
+</div></div> {% highlight ruby %} using System;
 
-  
+
 using System.Diagnostics;  
 using System.IO;  
 using System.Security;  
 using System.Security.Principal;  
-using System.Threading;</p> 
+using System.Threading;</p>
 namespace AOP  
 {  
 public class ProceduralCode  
@@ -170,7 +170,7 @@ public class UploadDocumentResponse { }
 
 public class TransientException : ApplicationException { }  
 }  
-[/csharp] 
+{% endhighlight %}
 I think that we can all agree that the above code snippet is about as far away from &#8216;Single responsibility&#8217; as it&#8217;s possible to get. Just by looking at the using statements required for this one function you should be able to see that this is doing far too much! Granted that this isn&#8217;t actually production code and was written to illustrate a point, but, I have seen plenty of production classes and functions that follow this pattern in a much more convoluted manner than the above `UploadDocument`. If one function has this extensive battery of requirements that are associated with it, then the odds are pretty good that there will be other functions with similar functional needs. Using the above methodology means that you will likely see all sorts of snippets of code copied-and-pasted liberally throughout your application to allow all the methods the same functionality. Whenever a developer is copying-and-pasting, its highly likely that the developer will forget to change a value or two resulting in some weird behaviour, how many times have you seen a function with a log statement belonging to another function but has been copied and pasted incorrectly. The result: one very confusing log!
 
 Just imagine if you were writing a unit test for the beast above, each and every unit test would need to:
@@ -182,9 +182,9 @@ Just imagine if you were writing a unit test for the beast above, each and every
 
 All that to just test that a file can be moved from one location to another&#8230;to me that seems like an awful load of work!
 
-#### Now imagine if the cross cutting concerns were added to reusable aspects: [csharp] namespace AOP
+#### Now imagine if the cross cutting concerns were added to reusable aspects: {% highlight ruby %} namespace AOP
 
-  
+
 {  
 class AopExample  
 {  
@@ -214,13 +214,13 @@ catch (Exception e)
 {  
 TransactionManager.HandleException(e);  
 throw;  
-} 
+}
 
 return result;  
 }  
 }  
 }  
-[/csharp] 
+{% endhighlight %}
 Wait, what&#8230; where&#8217;s all the code gone?! Don&#8217;t worry, the functionality is still there, it&#8217;s just not all in the same place. In this example there will be a number of aspects that will have intercepted the call to `UploadDocument` and apply the functionality as described in the aspect and the attributes above the function. So what might one of these aspects look like? I&#8217;m not going to go through them all, but in the next section we&#8217;ll look at the logging example to give you an idea about what to expect. Look at the `UploadDocument` code, isn&#8217;t it cleaner? isn&#8217;t it easier to see what the function is trying to achieve? Granted, there&#8217;s till some work to do tidying up the function, but as an example you can see it&#8217;s possible to significantly reduce the lines of code required in each domain function.
 
 ### How can we implement AOP?
@@ -230,9 +230,9 @@ There are two main ways in which you can implement AOP (within .NET):
 *   IL weaving by using a tool like [Postsharp][6]. The interception is achieved at compile-time to provide you with a fully configured assembly post build. Full disclosure: I haven&#8217;t used Postsharp in a production like environment so I can&#8217;t comment on it&#8217;s effectiveness
 *   Runtime interception creation by using a tool like [Windsor.Castle][7] (or another DI container). Whilst this sounds like a scary thing, it&#8217;s not! Due to the fact that I use Castle as a DI container on all my projects, I prefer to hook into the interception mechanism provided by castle (kill two birds with one stone!)
 
-I promised you a look at one of the interceptors (or at least what they might look like) so here it is&#8230; [csharp] class LoggingAspect : IInterceptor
+I promised you a look at one of the interceptors (or at least what they might look like) so here it is&#8230; {% highlight ruby %} class LoggingAspect : IInterceptor
 
-  
+
 {  
 public void Intercept(IInvocation invocation)  
 {  
@@ -268,13 +268,13 @@ log.DebugFormat(&#8220;TRACE &#8211; {0}.{1}:{2} milliseconds&#8221;, className,
 }  
 }  
 }  
-[/csharp] <div class = "panel panel-danger"> <div class="panel-head">
+{% endhighlight %} <div class = "panel panel-danger"> <div class="panel-head">
   <i class="fa fa-exclamation-circle fa-3"></i> WARNING
 </div>
 
 <div class="panel-body">
   </i>Please do not use this logging aspect in production code it&#8217;s missing so many necessary safety checks&#8230; it is for example only!
-</div></div> 
+</div></div>
 
 I&#8217;ve deliberately chosen one of the more simple aspects to focus on so it&#8217;s possible to see what&#8217;s going on. I&#8217;ve also chosen to go down the Castle interception route as this is the tool that I&#8217;m most familiar with. We can see with the above example that we are:
 

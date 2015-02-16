@@ -31,16 +31,16 @@ Native MVC uses the concept of a which seams to work quite nicely. However, when
 
 #### Example Castle Dependency Resolver
 
-The code required for the Castle Dependency Resolver can be found within the Artisan Code GitHub repository:&nbsp;[WebApiCastleIntegration/WebApiCastleIntegration/Infrastructure/CastleDependencyResolver.cs][6] [csharp] using Castle.MicroKernel;
+The code required for the Castle Dependency Resolver can be found within the Artisan Code GitHub repository:&nbsp;[WebApiCastleIntegration/WebApiCastleIntegration/Infrastructure/CastleDependencyResolver.cs][6] {% highlight ruby %} using Castle.MicroKernel;
 
-  
+
 using Castle.Windsor;  
 using System;  
 using System.Collections.Generic;  
 using System.Diagnostics;  
 using System.Linq;  
 using System.Web.Http.Dependencies;  
-using IDependencyResolver = System.Web.Http.Dependencies.IDependencyResolver;</p> 
+using IDependencyResolver = System.Web.Http.Dependencies.IDependencyResolver;</p>
 namespace WebApiCastleIntegration.Infrastructure  
 {  
 [DebuggerStepThrough] public class CastleDependencyResolver : IDependencyResolver  
@@ -159,7 +159,7 @@ _disposed = true;
 }  
 }  
 }  
-[/csharp] 
+{% endhighlight %}
 ### Step 2 &#8211; Create a Castle specific Web API Dependency scope
 
 For those who are paying attention to the above code snippet, they might have noticed that within the I was creating a new `CastleDependencyScope`. If you&#8217;re wondering what this is and why we might need it, fear not for I will explain all.&nbsp;When you set up your Castle configuration and you specify a component as `LifestyleScoped()` the Web API pipeline needs to understand where a scope begins and ends. You could use a Http Module to explicitly start and stop a scope boundary, or you could have a class implement the [`IDependencyScope`][7] and return this object from the `BeginScope()` function. For this article, this is exactly what I&#8217;m doing. The [`IDependencyScope`][7] interface is very similar to the [`IDependencyResolver`][3] interface. In fact the `IDependencyResolver` interface derives from `IDependencyScope`
@@ -171,9 +171,9 @@ If at this point you&#8217;re asking where the scoping element of the class come
 
 #### Example Castle Dependency Scope
 
-The code required for the Castle Dependency Scope can be found within the Artisan Code GitHub repository:&nbsp;[WebApiCastleIntegration/WebApiCastleIntegration/Infrastructure/CastleDependencyScope.cs][10] [csharp] using Castle.MicroKernel;
+The code required for the Castle Dependency Scope can be found within the Artisan Code GitHub repository:&nbsp;[WebApiCastleIntegration/WebApiCastleIntegration/Infrastructure/CastleDependencyScope.cs][10] {% highlight ruby %} using Castle.MicroKernel;
 
-  
+
 using Castle.MicroKernel.Lifestyle;  
 using Castle.Windsor;  
 using System;  
@@ -300,22 +300,22 @@ _disposed = true;
 }  
 }  
 }  
-[/csharp] 
+{% endhighlight %}
 ### Step 3 – Create a Castle installer for the Web API Controllers
 
-Just like the [last post][1], we&#8217;ll need an installer to configure Castle to resolve the projects dependencies correctly. Rather than just repeating what I wrote previously I&#8217;ll let you go to that article and read the appropriate section. One difference this time round is that I&#8217;m going to be using Castles build in Fluent interface in order to reflect through the assembly and automatically register all the ApiControllers, using the following code: [csharp] // Register all the WebApi controllers within this assembly
+Just like the [last post][1], we&#8217;ll need an installer to configure Castle to resolve the projects dependencies correctly. Rather than just repeating what I wrote previously I&#8217;ll let you go to that article and read the appropriate section. One difference this time round is that I&#8217;m going to be using Castles build in Fluent interface in order to reflect through the assembly and automatically register all the ApiControllers, using the following code: {% highlight ruby %} // Register all the WebApi controllers within this assembly
 
-  
+
 container.Register(Classes.FromAssembly(typeof(ValuesController).Assembly)  
 .BasedOn<ApiController>()  
 .LifestyleScoped());  
-[/csharp] 
+{% endhighlight %}
 An example Castle Web API Installer can be found within the Artisan Code GitHub repository: [WebApiCastleIntegration/WebApiCastleIntegration/Infrastructure/ApplicationCastleInstaller.cs][11]
 
 ### Step 4 – Wire everything up
 
 At this point you should have the `CastleDependencyResolver`, `CastleDependencyScope` and the `CastleApplicationInstaller` ready to go. All that&#8217;s required to successfully get Web API to both these components is to add a little wiring up code to the application start-up. The following code needs to be added to the [`Application_Start`][12] function within the &#8216;Global.asax.cs&#8217; file. Here&#8217;s an example `Application_Start` function:  
-[csharp] protected void Application_Start()  
+{% highlight ruby %} protected void Application_Start()  
 {  
 AreaRegistration.RegisterAllAreas();
 
@@ -333,31 +333,31 @@ GlobalConfiguration.Configuration.DependencyResolver = new CastleDependencyResol
 WebApiConfig.Register(GlobalConfiguration.Configuration);  
 RouteConfig.RegisterRoutes(RouteTable.Routes);  
 }  
-[/csharp] <div class="panel panel-danger">
+{% endhighlight %} <div class="panel panel-danger">
   <div class="panel-heading">
     <p class="panel-title">
       WARNING: If using Web API v2.x
     </p></p>
   </div>
-  
+
   <div class="panel-body">
-    If you are using Web API version 2.x, then the above wiring up code needs one small modification. The line<br /> [csharp]WebApiConfig.Register(GlobalConfiguration.Configuration);[/csharp] needs to be changed to:<br /> [csharp]GlobalConfiguration.Configure(WebApiConfig.Register);[/csharp] <p>
+    If you are using Web API version 2.x, then the above wiring up code needs one small modification. The line<br /> {% highlight ruby %}WebApiConfig.Register(GlobalConfiguration.Configuration);{% endhighlight %} needs to be changed to:<br /> {% highlight ruby %}GlobalConfiguration.Configure(WebApiConfig.Register);{% endhighlight %} <p>
       Thanks <a href="https://twitter.com/bertyJobbo" title="Link to Rob Johnson's Twitter profile">@bertyJobbo</a> for picking this up and telling me about it!<br /> I&#8217;m going to leave the sample code and the article as they are for the moment, I might get round to writing a separate WebApiArticle for version 2.1 later. </div> </div> <p>
         You can find an example Global.asax.cs file within the Artisan Code GitHub repository: <a title="Example Globabl.asax.cs file" href="https://github.com/ArtisanCode/WebApiCastleIntegration/blob/master/WebApiCastleIntegration/Global.asax.cs">WebApiCastleIntegration/WebApiCastleIntegration/Global.asax.cs</a>
       </p>
-      
+
       <h3>
         Step 4 &#8211; That&#8217;s all there is!
       </h3>
-      
+
       <p>
         It&#8217;s not quite as simple as integrating Castle with MVC, but in four easy steps you should have Windsor.Castle integrated into the Web API pipeline and serving correctly configured Api Controllers with any dependencies already injected. If you would like to have a look at an example solution that has Castle integrated with MVC, check out the <a title="Example project containing functioning Castle integration with Web API" href="https://github.com/ArtisanCode/WebApiCastleIntegration">WebApiCastleIntegration</a> solution hosted on GitHub.
       </p>
-      
+
       <h4>
         Edits:
       </h4>
-      
+
       <ol>
         <li>
           [14-Jun-2014 @ 17:43] Updated the github repository to be <a title="New GitHub repository" href="https://github.com/ArtisanCode">https://github.com/ArtisanCode</a>

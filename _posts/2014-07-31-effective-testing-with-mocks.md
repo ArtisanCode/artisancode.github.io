@@ -56,7 +56,7 @@ Hopefully by now I&#8217;ve given you the sales pitch and convinced you that moc
 
 #### Orchestration functions
 
-These functions manage class dependencies in order to achieve the desired behaviour. What do I mean by this? If you take the ***extremely*** contrived example below that orders a product for a customer. This function performs a number of business checks to ensure that the user is registered and that there is sufficient stock for the order to process, then it redirects to the payment section with any payment details auto-filled. As you can see, this function isn&#8217;t responsible for actually performing any of the tasks, rather it&#8217;s only concern is to manage it&#8217;s dependencies and achieve the correct function flow for the required business scenario.  [csharp] public ICustomers Customers { get; set; }
+These functions manage class dependencies in order to achieve the desired behaviour. What do I mean by this? If you take the ***extremely*** contrived example below that orders a product for a customer. This function performs a number of business checks to ensure that the user is registered and that there is sufficient stock for the order to process, then it redirects to the payment section with any payment details auto-filled. As you can see, this function isn&#8217;t responsible for actually performing any of the tasks, rather it&#8217;s only concern is to manage it&#8217;s dependencies and achieve the correct function flow for the required business scenario.  {% highlight ruby %} public ICustomers Customers { get; set; }
 
   
 public IProducts Products { get; set; }  
@@ -78,10 +78,10 @@ return Redirection.RedirectToUserConfirmation(reserveStockResult);
 var savedPaymentDetails = PaymentGateway.RetrievedAnySavedDetails(customerUserName);  
 return Redirection.RedirectToPaymentConfirmation(savedPaymentDetails);  
 }  
-[/csharp] 
+{% endhighlight %} 
 #### Algorithmic functions
 
-These functions do not manage many (if at all) dependencies and are often concerned with only achieving the correct result. Again, below there is yet another contrived example of what I mean by an algorithmic function. All this function is trying to do is to return the total value of a shopping cart including the applicable tax.<sup><a href="#fn2" id="ref2">[2]</a></sup> [csharp] public ShoppingCartTotal CalculateShoppingCartTotal(IEnumerable<ProductSelection> products)
+These functions do not manage many (if at all) dependencies and are often concerned with only achieving the correct result. Again, below there is yet another contrived example of what I mean by an algorithmic function. All this function is trying to do is to return the total value of a shopping cart including the applicable tax.<sup><a href="#fn2" id="ref2">[2]</a></sup> {% highlight ruby %} public ShoppingCartTotal CalculateShoppingCartTotal(IEnumerable<ProductSelection> products)
 
   
 {  
@@ -92,7 +92,7 @@ result.TotalTax = products.Where(x => !x.IsTaxExempt).Sum(x => (x.PricePerUnit \
 
 return result;  
 }  
-[/csharp] 
+{% endhighlight %} 
 Given these two types of functions I find myself trying to separate my code into these two categories as much as possible with as little overlap as I can get away with. If I find orchestration functions that contain algorithmic sections, I attempt to refactor the code and split up the responsibilities into smaller functions. The same is obviously true in the other direction. So I hear yourself saying that &#8216;*this is all nice and dandy, but what does it have to do with effective testing with mocks?!*&#8216;. Given the two categories of functions listed above, it shouldn&#8217;t be too much of a leap to see that mocks can help more with one category than the other.
 
 By splitting the code as much as you can into its constituent parts, one of the benefits that you get is that you can confine your mock usage to a smaller subsection of the functions under test. You actually get to choose whether you want to use the &#8216;classic&#8217; test route for algorithmic type functions e.g. &#8216;given an input of *x* I expect the function to return *y*&#8216;. This is particularly suited to functions that perform calculations, transformations, or validations as the test criteria are usually black or white e.g. `<a title="MSDN - Assert.AreEqual Method" href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.unittesting.assert.areequal.aspx">Assert.AreEqual(expectedTaxValue, result.TotalTax);</a>`. This form of unit tests allow the developer to claim that the code produces the expected results, not necessarily that the software behaves correctly or is well designed. Conversely, you also get to choose when you bring in mocks to help test the behaviour and functional flow of you software and gain all the benefits mentioned above. This choice is a powerful thing as it allows you to pick the best method for your particular scenario without always being forced blindly down the same path/testing strategy.

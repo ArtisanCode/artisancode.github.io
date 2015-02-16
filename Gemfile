@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
-
-gem 'github-pages'
-gem 'pygments.rb'
+require 'json'
+require 'open-uri'
+versions = JSON.parse(open('https://pages.github.com/versions.json').read)
+gem 'github-pages', versions['github-pages']
 gem 'jekyll-mentions'
 gem 'jemoji'
 gem 'jekyll-redirect-from'
 gem 'jekyll-sitemap'
+gem 'wdm'
