@@ -6,7 +6,7 @@ author: Tom Kuhn
 excerpt: Exploring the need to constantly refine software architecture and in some cases start from scratch by looking at some architecture/system design anti-patterns. This post explores the situation where there is one overriding system design that all projects must work within irrespective of the actual project requirements.
 layout: post
 guid: http://www.artisancode.co.uk/?p=135
-permalink: /2014/05/architecture-antipattern-one-system-architecture-rule/
+slug: architecture-antipattern-one-system-architecture-rule
 categories:
   - Enterprise architecture
   - Opinion

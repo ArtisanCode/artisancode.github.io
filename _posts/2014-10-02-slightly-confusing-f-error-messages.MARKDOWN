@@ -1,6 +1,7 @@
 ---
 id: 210
 title: 'Slightly confusing F# error messages'
+slug: slightly-confusing-f-error-messages
 date: 2014-10-02T13:25:49+00:00
 author: Tom Kuhn
 excerpt: 'The confusion around the f# error: "This expression was expected to have type unit but here has type int". Exploring the unhelpfulness of an F# error message for someone new to the language.'

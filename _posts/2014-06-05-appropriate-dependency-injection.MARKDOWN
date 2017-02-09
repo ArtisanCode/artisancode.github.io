@@ -6,7 +6,7 @@ author: Tom Kuhn
 excerpt: "A colleague of mine recently wrote a very nice article about knowing when to use Dependency Injection (DI) in a project. There are a whole load of great ideas and suggestions within this post and I strongly recommend you spending 5 minutes reading the article in its entirety. There were so many points that were raised that could spawn individual discussions but one leapt out at me which I thought warranted special attention: 'Practice makes perfect'!"
 layout: post
 guid: http://www.artisancode.co.uk/?p=161
-permalink: /2014/06/appropriate-dependency-injection/
+slug: appropriate-dependency-injection
 categories:
   - Dependency Injection
   - Opinion
@@ -25,19 +25,19 @@ A colleague of mine recently wrote a very nice article about knowing when to use
 Whilst the article never explicitly mentions the word &#8216;practice&#8217; the concept is certainly touched upon several times.
 
 > Rather than thinking in terms of when a project is big enough I’d recommend starting on a small simple project. Whenever I learn something new I try to minimise complexity elsewhere so that I can focus my effort on the thing I’m trying to learn.
-> 
+>
 > [_Marc Ziman_](http://flat9.wordpress.com/2014/06/04/when-should-i-use-dependency-injection/ "Blog article: When should I use Dependency Injection?")
 
 As software developers is always so easy to fall into the trap of just following the predecessor project or falling back on what you know, love and are comfortable with. These defaults are not bad, far from it. By having these comfortable norms it allows developers to focus on the problems the software is trying to solve rather than wrestling with the code architecture as well. However, once in a while it can pay to reassess their own (and the businesses) defaults to evaluate new techniques and tools&#8230; this is where practice can make the difference between success and failure. Vary rarely do we as software developers get the opportunity to dedicate our time to practising new techniques. There&#8217;s a famous quote which reads
 
 > [&#8230;] it takes roughly ten thousand hours of practice to achieve mastery in a field
-> 
+>
 > [_Malcolm Gladwell_](http://www.wisdomgroup.com/blog/10000-hours-of-practice/ "Blog article: Mastering a skill in ten thousand hours.")
 
 By picking a technique to practice (in this case Dependency Injection) it can really help you appreciate the finer details of DI containers, lifestyles, [Aspect Orientated Programming](http://en.wikipedia.org/wiki/Aspect-oriented_programming "Wikipedia entry on AOP") and good old-fashioned SOLID design principles. Dependency Injection is a tool that can help your code become cleaner, conciser and much more maintainable, so it&#8217;s often a handy addition to your default tool set.
 
 > [&#8230;] any friction you encounter using your DI container is part of the learning process. Once you’re familiar with the tool you shouldn&#8217;t really notice it.
-> 
+>
 > [_Marc Ziman_](http://flat9.wordpress.com/2014/06/04/when-should-i-use-dependency-injection/ "Blog article: When should I use Dependency Injection?")
 
 Whenever you are learning a new technique or tool there will be some bumpy spots along the road, Dependency Injection is no exception! There will be times when you&#8217;re looking at your code, pulling your hair out wondering why one of your dependencies is `null`. I promise you that this happens to everyone, even those who are supposed &#8216;experts&#8217; in DI! All this talk of practice is fine and dandy but it doesn&#8217;t answer the question at the top of this post&#8230;

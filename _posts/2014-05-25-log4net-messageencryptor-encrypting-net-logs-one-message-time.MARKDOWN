@@ -6,7 +6,7 @@ author: Tom Kuhn
 excerpt: Launching a tool that allows you to encrypt log messages whilst leaving all the log statement meta data intact. The Log4Net message encryptor does exactly what it says in the title... it encrypts the log messages and only the messages. This means that all the time-stamps, log levels, thread information and any other metadata remain in plaintext within your logs. The tool uses the concept of the log4net forwarding appender meaning that any appenders referenced by the MessageEncryptingAppender receive a logging object containing the encrypted message contents, therefore, this tool should be compatible with any other appenders used by your current solution. The upshot of this is that log message encryption should be able to be plumbed into an existing solution with minimal effort and rework.
 layout: post
 guid: http://www.artisancode.co.uk/?p=150
-permalink: /2014/05/log4net-messageencryptor-encrypting-net-logs-one-message-time/
+slug: log4net-messageencryptor-encrypting-net-logs-one-message-time
 categories:
   - 'c#'
   - Open source
@@ -44,27 +44,27 @@ Usage of the tool is really simple &#8230; simply install via NuGet and add the 
     <td>
       <i class="icon-github "></i> Git Hub repository
     </td>
-    
+
     <td>
       <a title="GitHub repository for Log4Net.MessageEncryptor" href="https://github.com/ArtisanCode/Log4NetMessageEncryptor">https://github.com/ArtisanCode/Log4NetMessageEncryptor</a>
     </td>
   </tr>
-  
+
   <tr>
     <td>
       NuGet site
     </td>
-    
+
     <td>
       <a title="NuGet hosted package for Log4Net.MessageEncryptor" href="https://www.nuget.org/packages/Log4Net.MessageEncryptor">https://www.nuget.org/packages/Log4Net.MessageEncryptor</a>
     </td>
   </tr>
-  
+
   <tr>
     <td>
       CI server
     </td>
-    
+
     <td>
       <a href="https://ci.appveyor.com/project/ArtisanCode/log4netmessageencryptor/"><img class="alignnone" src="https://ci.appveyor.com/api/projects/status/9dl0t3ty387no5my" alt="Log4Net.MessageEncryptor Build status" width="100" height="18" /></a> <a title="CI server for Log4Net.MessageEncryptor" href="https://ci.appveyor.com/project/ArtisanCode/log4netmessageencryptor/">https://ci.appveyor.com/project/ArtisanCode/log4netmessageencryptor</a>
     </td>

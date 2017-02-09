@@ -23,6 +23,20 @@
                         </a>
                     </li>
                     {% endif %}
+                    {% if site.linkedin_url %}
+                    <li>
+                        <a href="{{ site.linkedin_url }}">
+                                <i class="fa fa-linkedin fa-2x fa-inverse"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if site.stack_overflow_url %}
+                    <li>
+                        <a href="{{ site.stack_overflow_url }}">
+                                <i class="fa fa-stack-overflow fa-2x fa-inverse"></i>
+                        </a>
+                    </li>
+                    {% endif %}
                     {% if site.github_username %}
                     <li>
                         <a href="https://github.com/{{ site.github_username }}">
@@ -31,8 +45,9 @@
                     </li>
                     {% endif %}
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}</p>
-                <p class="disclaimer text-muted">This is an independant website. The views and opinions expressed within this site are those of the author alone and do not necessarily reflect the views and opinions of any organizations affiliated with the respective author.</p>
+                <p class="copyright text-muted">Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}<br/>
+                This is an independant website. The views and opinions expressed within this site are those of the author alone and do not necessarily reflect the views and opinions of any organizations affiliated with the respective author.</p>
+                <p class="disclaimer text-muted"><a href="{{ site.baseurl }}/sitemap.xml">Sitemap</a></p>
             </div>
         </div>
     </div>

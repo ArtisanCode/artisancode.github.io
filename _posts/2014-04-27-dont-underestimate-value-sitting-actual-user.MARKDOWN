@@ -6,7 +6,7 @@ author: Tom Kuhn
 excerpt: A story highlighting the necessity of sitting with actual users of the application to help determine and fix problems.
 layout: post
 guid: http://www.artisancode.co.uk/?p=130
-permalink: /2014/04/dont-underestimate-value-sitting-actual-user/
+slug: dont-underestimate-value-sitting-actual-user
 categories:
   - Anecdote
   - Opinion

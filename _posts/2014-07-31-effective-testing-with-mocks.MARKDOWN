@@ -1,12 +1,12 @@
 ---
 id: 195
 title: Effective testing with mocks
+slug: effective-testing-with-mocks
 date: 2014-07-31T20:15:03+00:00
 author: Tom Kuhn
 excerpt: 'An article exploring some of the benefits of using mocks within unit tests: Isolation, Safety, Speed, Flexibility, Sanity check for good design. This article also looks at how the way you write and structure your functions can have an impact on their testing as well as the need for mocks within the tests themselves.'
 layout: post
 guid: http://www.artisancode.co.uk/?p=195
-permalink: /2014/07/effective-testing-with-mocks/
 categories:
   - Mocks
   - Opinion
@@ -18,8 +18,8 @@ tags:
   - testing
 ---
 > It is an (almost) universally held opinion that software testing is usually a &#8216;good&#8217; thing&#8217;<sup><a href="#fn1" id="ref1">[1]</a></sup>
-  
-> [Tom Kuhn](http://www.artisancode.co.uk/contact/ "Contact") 
+
+> [Tom Kuhn](http://www.artisancode.co.uk/contact/ "Contact")
 
 <a href="http://i1.wp.com/www.artisancode.co.uk/wp-content/uploads/2014/07/Mocks-testing-preference1.png" rel="lightbox" ><img src="http://i1.wp.com/www.artisancode.co.uk/wp-content/uploads/2014/07/Mocks-testing-preference1.png?fit=500%2C771" alt="Image demonstrating the dangers of testing without Mocks" class="alignright size-full wp-image-199" srcset="http://i1.wp.com/www.artisancode.co.uk/wp-content/uploads/2014/07/Mocks-testing-preference1.png?w=500 500w, http://i1.wp.com/www.artisancode.co.uk/wp-content/uploads/2014/07/Mocks-testing-preference1.png?w=194 194w" sizes="(max-width: 500px) 100vw, 500px" data-recalc-dims="1" /></a>
 
@@ -52,7 +52,7 @@ Mocks give you complete control of the execution of your code and allow you to b
 
 This is probably one of my favourite reasons for looking to mocks to help test a function. The basic premise is this: if a test is too painful to write (e.g. it is taking too long, or it&#8217;s difficult to read and understand) then it&#8217;s an indication that the function is trying to do too much or your design could be improved. By having the unit test as a mirror held up to your code it allows you to feel the pain of having to test an overly large function, coincidently, this is the exact same pain someone else will have to go through when maintaining the same function. This can be said of unit tests in general but by utilising the mock framework it forces you to think about and analyse the dependencies being used by the function as you need to specifically provide setup code for each dependency.
 
-Like any tool Mocking frameworks can either drastically help or hinder your tests and by extension your code quality, the trick to getting the best out of mocks comes from knowing when and where to reach for the mocking tool. There are those that take a fairly dim view of mocking frameworks (recently [To Kill a Mockingtest](http://techblog.realestate.com.au/to-kill-a-mockingtest/ "To Kill a Mockingtest")) and there are those that like to take the time to analyse where and when mocks can add the greatest benefit. There are of course people out there who try and use the same tool for all purposes, but this isn&#8217;t an option that I&#8217;d recommend! 
+Like any tool Mocking frameworks can either drastically help or hinder your tests and by extension your code quality, the trick to getting the best out of mocks comes from knowing when and where to reach for the mocking tool. There are those that take a fairly dim view of mocking frameworks (recently [To Kill a Mockingtest](http://techblog.realestate.com.au/to-kill-a-mockingtest/ "To Kill a Mockingtest")) and there are those that like to take the time to analyse where and when mocks can add the greatest benefit. There are of course people out there who try and use the same tool for all purposes, but this isn&#8217;t an option that I&#8217;d recommend!
 
 ### What are we testing?
 
@@ -60,46 +60,46 @@ Hopefully by now I&#8217;ve given you the sales pitch and convinced you that moc
 
 #### Orchestration functions
 
-These functions manage class dependencies in order to achieve the desired behaviour. What do I mean by this? If you take the ***extremely*** contrived example below that orders a product for a customer. This function performs a number of business checks to ensure that the user is registered and that there is sufficient stock for the order to process, then it redirects to the payment section with any payment details auto-filled. As you can see, this function isn&#8217;t responsible for actually performing any of the tasks, rather it&#8217;s only concern is to manage it&#8217;s dependencies and achieve the correct function flow for the required business scenario. 
+These functions manage class dependencies in order to achieve the desired behaviour. What do I mean by this? If you take the ***extremely*** contrived example below that orders a product for a customer. This function performs a number of business checks to ensure that the user is registered and that there is sufficient stock for the order to process, then it redirects to the payment section with any payment details auto-filled. As you can see, this function isn&#8217;t responsible for actually performing any of the tasks, rather it&#8217;s only concern is to manage it&#8217;s dependencies and achieve the correct function flow for the required business scenario.
 
 [csharp]
-  
+
 public ICustomers Customers { get; set; }
-  
+
 public IProducts Products { get; set; }
-  
+
 public IPayments PaymentGateway { get; set; }
-  
+
 public IRedirectionHandler Redirection { get; set; }
 
 public ActionResult OrderProduct(string customerUserName, IEnumerable<int> productIDs)
-  
+
 {
-      
+
 if (!Customers.IsRegistered(customerUserName))
-      
+
 {
-          
+
 return Redirection.RedirectToRegistration(customerUserName);
-      
+
 }
 
 var reserveStockResult = Products.ReserveProductsForCustomer(customerUserName, productIDs);
-      
+
 if(reserveStockResult.Status != StockReservationStatus.OK)
-      
+
 {
-          
+
 return Redirection.RedirectToUserConfirmation(reserveStockResult);
-      
+
 }
 
 var savedPaymentDetails = PaymentGateway.RetrievedAnySavedDetails(customerUserName);
-      
+
 return Redirection.RedirectToPaymentConfirmation(savedPaymentDetails);
-  
+
 }
-  
+
 [/csharp]
 
 #### Algorithmic functions
@@ -107,21 +107,21 @@ return Redirection.RedirectToPaymentConfirmation(savedPaymentDetails);
 These functions do not manage many (if at all) dependencies and are often concerned with only achieving the correct result. Again, below there is yet another contrived example of what I mean by an algorithmic function. All this function is trying to do is to return the total value of a shopping cart including the applicable tax.<sup><a href="#fn2" id="ref2">[2]</a></sup>
 
 [csharp]
-  
+
 public ShoppingCartTotal CalculateShoppingCartTotal(IEnumerable<ProductSelection> products)
-  
+
 {
-      
+
 ShoppingCartTotal result = new ShoppingCartTotal();
 
 result.TotalProductValue = products.Sum(x => x.PricePerUnit * x.Quantity);
-      
+
 result.TotalTax = products.Where(x => !x.IsTaxExempt).Sum(x => (x.PricePerUnit \* x.Quantity) \* 0.2M); // 20% VAT
 
 return result;
-  
+
 }
-  
+
 [/csharp]
 
 Given these two types of functions I find myself trying to separate my code into these two categories as much as possible with as little overlap as I can get away with. If I find orchestration functions that contain algorithmic sections, I attempt to refactor the code and split up the responsibilities into smaller functions. The same is obviously true in the other direction. So I hear yourself saying that &#8216;_this is all nice and dandy, but what does it have to do with effective testing with mocks?!_&#8216;. Given the two categories of functions listed above, it shouldn&#8217;t be too much of a leap to see that mocks can help more with one category than the other.

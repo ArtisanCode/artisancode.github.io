@@ -2,7 +2,6 @@
 title: ARTISAN CODE
 email: tom@artisancode.co.uk
 description: Software craftsmanship by design
-baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.artisancode.co.uk" # the base hostname & protocol for your site
 twitter_username: Tom_Kuhn
 github_username:  Tom-Kuhn
@@ -10,7 +9,7 @@ linkedin_url: https://www.linkedin.com/profile/view?id=82578011
 
 # Build settings
 # permalink: pretty
-permalink: /:year/:month/:title
+permalink: /:year/:month/:slug
 paginate: 5
 exclude: ["node_modules"]
 

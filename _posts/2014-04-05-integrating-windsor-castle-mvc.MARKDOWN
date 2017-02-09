@@ -5,7 +5,7 @@ date: 2014-04-05T16:24:23+00:00
 author: Tom Kuhn
 layout: post
 guid: http://www.artisancode.co.uk/?p=72
-permalink: /2014/04/integrating-windsor-castle-mvc/
+slug: integrating-windsor-castle-mvc
 categories:
   - 'c#'
   - Technical
@@ -17,6 +17,7 @@ tags:
 published: true
 ---
 Making sure that ASP.NET MVC and Windsor Castle play nicely together is surprisingly easy, just as long as you know what steps need to be performed. This post will hopefully take you through the process of integrating Castle (or any other Dependency Injection container) with the latest version of MVC. At the end of the article, there will be a link to the Artisan Code GitHub repository that contains a reference MVC solution with all the setup code required. This can be used as a basis for a new project, or simply as a guide to help you integrate Castle into an existing project. Without any further ado, lets start looking at some code.
+
 
 This article makes the following assumptions:
 
