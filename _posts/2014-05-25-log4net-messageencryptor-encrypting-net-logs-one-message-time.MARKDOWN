@@ -1,8 +1,11 @@
 ---
+id: 150
 title: 'Log4Net.MessageEncryptor &#8211; Encrypting .NET logs one message at a time'
+date: 2014-05-25T20:30:55+00:00
 author: Tom Kuhn
 excerpt: Launching a tool that allows you to encrypt log messages whilst leaving all the log statement meta data intact. The Log4Net message encryptor does exactly what it says in the title... it encrypts the log messages and only the messages. This means that all the time-stamps, log levels, thread information and any other metadata remain in plaintext within your logs. The tool uses the concept of the log4net forwarding appender meaning that any appenders referenced by the MessageEncryptingAppender receive a logging object containing the encrypted message contents, therefore, this tool should be compatible with any other appenders used by your current solution. The upshot of this is that log message encryption should be able to be plumbed into an existing solution with minimal effort and rework.
 layout: post
+guid: http://www.artisancode.co.uk/?p=150
 permalink: /2014/05/log4net-messageencryptor-encrypting-net-logs-one-message-time/
 categories:
   - 'c#'
@@ -18,7 +21,7 @@ This week I found that I had a spare evening, so I set myself a challenge: set-u
 
 ### What is Log4Net.MessageEncryptor?
 
-The Log4Net message encryptor does exactly what it says in the title&#8230; it encrypts the log messages and only the messages. This means that all the time-stamps, log levels, thread information and any other metadata remain in plaintext within your logs. The tool uses the concept of the [log4net forwarding appender][1] meaning that any appenders referenced by the MessageEncryptingAppender receive a logging object containing the encrypted message contents, therefore, this tool should be compatible with any other appenders used by your current solution. The upshot of this is that log message encryption should be able to be plumbed into an existing solution with minimal effort and rework.
+The Log4Net message encryptor does exactly what it says in the title&#8230; it encrypts the log messages and only the messages. This means that all the time-stamps, log levels, thread information and any other metadata remain in plaintext within your logs. The tool uses the concept of the [log4net forwarding appender](http://logging.apache.org/log4net/release/sdk/log4net.Appender.ForwardingAppender.html "Log4net documentation: forwarding appender") meaning that any appenders referenced by the MessageEncryptingAppender receive a logging object containing the encrypted message contents, therefore, this tool should be compatible with any other appenders used by your current solution. The upshot of this is that log message encryption should be able to be plumbed into an existing solution with minimal effort and rework.
 
 &nbsp;
 
@@ -30,7 +33,7 @@ Recently there is a trend where developers are logging entire object states to f
 
 ### How can we use it?
 
-Usage of the tool is really simple &#8230; simply install via NuGet and add the necessary configuration information. Detailed steps of this process can be found here: [https://github.com/ArtisanCode/Log4NetMessageEncryptor][2]
+Usage of the tool is really simple &#8230; simply install via NuGet and add the necessary configuration information. Detailed steps of this process can be found here: [https://github.com/ArtisanCode/Log4NetMessageEncryptor](https://github.com/ArtisanCode/Log4NetMessageEncryptor "GitHub repository for Log4Net.MessageEncryptor")
 
 &nbsp;
 
@@ -70,8 +73,4 @@ Usage of the tool is really simple &#8230; simply install via NuGet and add the 
 
 &nbsp;
 
-In a later post I want to explicitly go through some of the awesome tools that I found to help with the process of building and deploying a .NET project from GitHub &#8230; namely [AppVeyor][3] a truly amazing service that made building, testing and deploying the message encryptor a breeze!
-
- [1]: http://logging.apache.org/log4net/release/sdk/log4net.Appender.ForwardingAppender.html "Log4net documentation: forwarding appender"
- [2]: https://github.com/ArtisanCode/Log4NetMessageEncryptor "GitHub repository for Log4Net.MessageEncryptor"
- [3]: http://www.appveyor.com/ "Continuous Integration for busy developers"
+In a later post I want to explicitly go through some of the awesome tools that I found to help with the process of building and deploying a .NET project from GitHub &#8230; namely [AppVeyor](http://www.appveyor.com/ "Continuous Integration for busy developers") a truly amazing service that made building, testing and deploying the message encryptor a breeze!

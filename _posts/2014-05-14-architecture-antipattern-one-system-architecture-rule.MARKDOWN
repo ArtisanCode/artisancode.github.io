@@ -1,8 +1,11 @@
 ---
+id: 135
 title: 'Architecture anti-pattern: &#8216;one architecture to rule them all&#8217;'
+date: 2014-05-14T11:29:32+00:00
 author: Tom Kuhn
 excerpt: Exploring the need to constantly refine software architecture and in some cases start from scratch by looking at some architecture/system design anti-patterns. This post explores the situation where there is one overriding system design that all projects must work within irrespective of the actual project requirements.
 layout: post
+guid: http://www.artisancode.co.uk/?p=135
 permalink: /2014/05/architecture-antipattern-one-system-architecture-rule/
 categories:
   - Enterprise architecture
@@ -33,7 +36,7 @@ Company culture is important, so important that I want to write a wholly separat
 
 #### One person’s nirvana is another’s pain
 
-This is quite a controversial point, but one that I think is worth making anyway. When designing one architectural way for all systems, often it is only one visionary or a very small set of people who generally get to decide on the way forward. This *can* lead to a beautifully well focussed design that (at least to the designer) is elegant and exactly what is required. However, it can also lead to developers feeling isolated and marginalised if they don’t necessarily share the same viewpoints as the architects. Having been on both sides of this point, it wasn’t until I had designs enforced on me that I truly realised how stressful it can be working within the confines of someone else’s vision. One architecture may help the company in a purist’s sense, but it can also cause undue stress within the development team. Let’s face it, we all live, breathe and work in a stressful enough environment without looking for any more!
+This is quite a controversial point, but one that I think is worth making anyway. When designing one architectural way for all systems, often it is only one visionary or a very small set of people who generally get to decide on the way forward. This _can_ lead to a beautifully well focussed design that (at least to the designer) is elegant and exactly what is required. However, it can also lead to developers feeling isolated and marginalised if they don’t necessarily share the same viewpoints as the architects. Having been on both sides of this point, it wasn’t until I had designs enforced on me that I truly realised how stressful it can be working within the confines of someone else’s vision. One architecture may help the company in a purist’s sense, but it can also cause undue stress within the development team. Let’s face it, we all live, breathe and work in a stressful enough environment without looking for any more!
 
 #### High upfront costs to implement and even more to replace
 
@@ -51,7 +54,7 @@ So now that I have highlights some of the negative outcomes that can arise from 
 
 #### Right tool for the right job at the right time
 
-Like most aspects of developing software, there is (usually) never a 100% correct solution and a 100% incorrect solution, we live in a world of compromises. The job of an architect / developer is to understand the compromises and make the best choices available with the information available. With this ambiguity comes the need to assess and evaluate the tools available e.g. do I *really* need a ServiceBus here, or can I just call a WebAPI endpoint directly? The answer might not always be the same for all problems, indeed the answer may change over time when the throughput of the system is measured and analysed. Sometimes as developers we need to stop ourselves from taking the easy option and blindly following the previous projects, which leads me on to …
+Like most aspects of developing software, there is (usually) never a 100% correct solution and a 100% incorrect solution, we live in a world of compromises. The job of an architect / developer is to understand the compromises and make the best choices available with the information available. With this ambiguity comes the need to assess and evaluate the tools available e.g. do I _really_ need a ServiceBus here, or can I just call a WebAPI endpoint directly? The answer might not always be the same for all problems, indeed the answer may change over time when the throughput of the system is measured and analysed. Sometimes as developers we need to stop ourselves from taking the easy option and blindly following the previous projects, which leads me on to …
 
 #### Review often and avoid big upfront designs (waterfall)
 
