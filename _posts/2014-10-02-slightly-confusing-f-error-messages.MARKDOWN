@@ -11,7 +11,7 @@ categories:
   - .NET
   - 'f#'
 tags:
-  - Error messages
+  - error-messages
   - 'F#'
 page.comments: true
 ---

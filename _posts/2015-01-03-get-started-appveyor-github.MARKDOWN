@@ -9,14 +9,14 @@ layout: post
 guid: http://www.artisancode.co.uk/?p=223
 slug: get-started-appveyor-github
 categories:
-  - 'Build &amp; Deployment'
+  - build-&amp;-deployment
   - CI
-  - Open source
+  - open-source
 tags:
-  - AppVeyor
-  - Build process
-  - Continious Integration
-  - GitHub
+  - appveyor
+  - build-process
+  - continious-integration
+  - github
 ---
 Ever since I dipped my toes into the world of Open Source software, I have long been impressed with one seemingly simple tool that [AppVeyor](http://www.appveyor.com/ "AppVeyor home page."). So many companies fail to get their build/CI tool spot-on, but I&#8217;m happy to report that AppVeyor is blindingly effortless to use delivering exactly what is needed without all the fuss. I first stumbled on this tool when I was looking for some way to use CI on my [Log4Net Message Encryption library](http://www.nuget.org/packages/Log4Net.MessageEncryptor/ "Log4Net Message encryption on NuGet"), as this library is ridiculously small I wanted a simple, lightweight tool to handle my builds&#8230; [AppVeyor enters stage right]. And the best thing about this tool, its free for open source projects! Just in case anyone is unsure about just how easy it is to get a build working with GitHub, I thought I&#8217;d write a quick article detailing the steps required to get started with AppVeyor and GitHub.
 

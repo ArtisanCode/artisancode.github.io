@@ -8,8 +8,8 @@ layout: post
 guid: http://www.artisancode.co.uk/?p=150
 slug: log4net-messageencryptor-encrypting-net-logs-one-message-time
 categories:
-  - 'c#'
-  - Open source
+  - c#
+  - open-source
 tags:
   - .NET
   - 'c#'

@@ -15,9 +15,9 @@ slug: aspect-orientated-programming
 categories:
   - .NET
   - AOP
-  - 'c#'
-  - Enterprise architecture
-  - System design
+  - c#
+  - enterprise-architecture
+  - system-design
 ---
 ### What is AOP (Aspect orientated programming)?
 

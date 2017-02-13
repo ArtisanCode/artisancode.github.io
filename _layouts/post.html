@@ -38,15 +38,14 @@ layout: default
                         {% for post in posts %}
                           {% unless post.url == page.url %}
                             <li>
-                              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                              <time datetime="{{ post.date | date_to_xmlschema }}"> - {{ post.date | date: "%B %-d, %Y" }}</time>
+                              {% include postlistitem.html %}
                             </li>
                           {% endunless %}
                         {% endfor %}
                       </ul>
                     </div>
                   {% endif %}
-                {% endfor %}                
+                {% endfor %}
                 <hr/>
                 <div id="disqus_thread"></div>
                 <script>

@@ -8,10 +8,10 @@ excerpt: 'An article exploring some of the benefits of using mocks within unit t
 layout: post
 guid: http://www.artisancode.co.uk/?p=195
 categories:
-  - Mocks
-  - Opinion
-  - System design
-  - Testing
+  - mocks
+  - opinion
+  - system-design
+  - testing
 tags:
   - Design
   - mocks

@@ -8,8 +8,8 @@ layout: post
 guid: http://www.artisancode.co.uk/?p=99
 slug: integrating-windsor-castle-web-api
 categories:
-  - 'c#'
-  - Technical
+  - c#
+  - technical
 tags:
   - 'c#'
   - Dependency Injection

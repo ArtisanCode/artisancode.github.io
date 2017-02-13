@@ -8,11 +8,10 @@ layout: post
 guid: http://www.artisancode.co.uk/?p=161
 slug: appropriate-dependency-injection
 categories:
-  - Dependency Injection
-  - Opinion
-  - System design
-  - Technical
-  - Uncategorized
+  - dependency-injection
+  - opinion
+  - system-design
+  - technical
 tags:
   - Companion article
   - Dependency Injection

@@ -8,9 +8,9 @@ layout: post
 guid: http://www.artisancode.co.uk/?p=130
 slug: dont-underestimate-value-sitting-actual-user
 categories:
-  - Anecdote
-  - Opinion
-  - Support
+  - anecdote
+  - opinion
+  - support
 ---
 A few years ago, I was working with a production support team looking after the core business CRM application. My primary role at the time was a DevOps position that had me mentoring the junior team members alongside babysitting the legacy application. I was called over by the Application Services Manager at the time and asked to help one of the less technical members of the team on a particularly insidious issue. The issue I was tasked to help with was:
 

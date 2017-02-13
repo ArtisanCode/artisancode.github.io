@@ -7,8 +7,8 @@ layout: post
 guid: http://www.artisancode.co.uk/?p=72
 slug: integrating-windsor-castle-mvc
 categories:
-  - 'c#'
-  - Technical
+  - c#
+  - technical
 tags:
   - Asp.Net MVC
   - 'c#'

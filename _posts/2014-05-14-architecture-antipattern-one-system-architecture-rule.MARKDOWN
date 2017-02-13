@@ -8,9 +8,9 @@ layout: post
 guid: http://www.artisancode.co.uk/?p=135
 slug: architecture-antipattern-one-system-architecture-rule
 categories:
-  - Enterprise architecture
-  - Opinion
-  - System design
+  - enterprise-architecture
+  - opinion
+  - system-design
 tags:
   - Anti-patterns
   - Design
