@@ -23,7 +23,7 @@ Ever since I dipped my toes into the world of Open Source software, I have long 
 
 ### 1. Sign up to AppVeyor
 
-<a href="http://i0.wp.com/www.artisancode.co.uk/wp-content/uploads/2015/01/2015-01-03_15h56_48.png" rel="lightbox" ><img src="http://i0.wp.com/www.artisancode.co.uk/wp-content/uploads/2015/01/2015-01-03_15h56_48.png?fit=739%2C685" alt="Schreenshot showing how to sign up to AppVeyor" class="aligncenter size-full wp-image-229" srcset="http://i0.wp.com/www.artisancode.co.uk/wp-content/uploads/2015/01/2015-01-03_15h56_48.png?w=739 739w, http://i0.wp.com/www.artisancode.co.uk/wp-content/uploads/2015/01/2015-01-03_15h56_48.png?w=300 300w" sizes="(max-width: 739px) 100vw, 739px" data-recalc-dims="1" /></a> <a href="http://www.artisancode.co.uk/wp-content/uploads/2015/01/2015-01-03_15h41_15.png" rel="lightbox" ></a>
+<a href="/content/2015/Getting started with AppVeyor.png" rel="lightbox" ><img src="/content/2015/Getting started with AppVeyor.png" alt="Screenshot showing how to sign up to AppVeyor" class="align center size-full"></a>
 
 This step is almost too easy, but I thought I&#8217;d include it for completeness-sake. So head on over to [AppVeyor](http://www.appveyor.com/ "AppVeyor home page.") and sign up now! For ease I would recommend signing in with your GitHub account, but feel free to use any credentials you want as it doesn&#8217;t really matter.
 
