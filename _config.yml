@@ -6,6 +6,7 @@ url: "http://www.artisancode.co.uk" # the base hostname & protocol for your site
 twitter_username: Tom_Kuhn
 github_username:  Tom-Kuhn
 linkedin_url: https://www.linkedin.com/profile/view?id=82578011
+stackoverflow_url: http://stackoverflow.com/users/1816/tk
 
 # Build settings
 # permalink: pretty
