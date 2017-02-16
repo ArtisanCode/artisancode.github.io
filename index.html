@@ -18,9 +18,9 @@ description: "Software craftsmanship by design"
     <p class="post-meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
     <p>{{ post.excerpt | strip_html }}</p>
     {% for category in post.categories %}
-        <a class="btn btn-default btn-sm" href="/categories/#{{ category }}" role="button">
+        <a class="btn btn-default btn-sm category-button" href="/categories/#{{ category }}" role="button">
         {% assign categoryNum = site.categories[category].size %}
-        {{category}} <span class="badge">{{categoryNum}}</span>
+        {{category}} <span class="badge category-button-badge">{{categoryNum}}</span>
         </a>
     {% endfor %}
 </div>
