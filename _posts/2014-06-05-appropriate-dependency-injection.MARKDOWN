@@ -19,8 +19,6 @@ tags:
 ---
 A colleague of mine recently wrote a very nice article about knowing when to use Dependency Injection (DI) in a project. Here&#8217;s a link to the [original article](http://flat9.wordpress.com/2014/06/04/when-should-i-use-dependency-injection/ "Blog article: When should I use Dependency Injection?"). There are a whole load of great ideas and suggestions within this post and I strongly recommend you spending 5 minutes reading the article in its entirety. There were so many points that were raised that could spawn individual discussions but one leapt out at me which I thought warranted special attention: &#8216;Practice makes perfect&#8217;!
 
-&nbsp;
-
 Whilst the article never explicitly mentions the word &#8216;practice&#8217; the concept is certainly touched upon several times.
 
 > Rather than thinking in terms of when a project is big enough I’d recommend starting on a small simple project. Whenever I learn something new I try to minimise complexity elsewhere so that I can focus my effort on the thing I’m trying to learn.
@@ -41,9 +39,7 @@ By picking a technique to practice (in this case Dependency Injection) it can re
 
 Whenever you are learning a new technique or tool there will be some bumpy spots along the road, Dependency Injection is no exception! There will be times when you&#8217;re looking at your code, pulling your hair out wondering why one of your dependencies is `null`. I promise you that this happens to everyone, even those who are supposed &#8216;experts&#8217; in DI! All this talk of practice is fine and dandy but it doesn&#8217;t answer the question at the top of this post&#8230;
 
-&nbsp;
-
-### So when is it appropriate to use Dependency Injection?
+## So when is it appropriate to use Dependency Injection?
 
 The answer, like so many thinks in life is not black and white. Very unhelpfully I&#8217;ll answer this question by saying &#8220;it depends&#8221;. Like Marc, I am a big fan of DI and I think that it can add a lot of value to most projects if adopted correctly. Personally, I would always start with the premise that DI should always be used unless there is a justification for not doing so.
 
@@ -53,8 +49,6 @@ What are some of the valid reasons might there be to consider not using DI:
   2. **Software written in a language that doesn&#8217;t have a readily available Dependency Injection framework** &#8211; Unless you are willing to write your own Dependency Injection framework, then you are pretty much blocked at the first hurdle here. However, this doesn&#8217;t mean to say that you shouldn&#8217;t be thinking about the &#8216;D&#8217; in SOLID and design your code accordingly. you never know when someone might write a DI container for your language and if the the code is designed an implemented correctly plumbing in a DI container at a latter stage can be made a easier task.
   3. **Simple applications that run for a short period and then exit** &#8211; Using a DI container often has an associated overhead, usually associated with the set-up and configuration of the container. If you have an application that runs for a very short period and then exits then the overhead of bringing in a DI container could be too much. However, you need to be careful as soon as your application starts to bring in more than 3 dependencies, then seriously consider using DI.
   4. **Ultra performance sensitive applications** &#8211; Most software can be tolerant of a few ms delay in creating an object from the DI container, however there are certain classes of applications e.g. high frequency trading platforms in which 20 ms is an eternity! Know your domain, know what delays you can tolerate and then decide if Dependency Injection is for you.
-
-&nbsp;
 
 If there are any other justifications you can think of, please feel free to add them to the comments below. Since we have covered some of the valid reasons for not adopting DI, less look at some of the less valid justifications people give for not wanting to use DI:
 
@@ -66,8 +60,6 @@ If there are any other justifications you can think of, please feel free to add 
   6. **It&#8217;s too difficult to understand what&#8217;s going on/Our developers won&#8217;t understand it** &#8211; By using Dependency Injection you are allowing a 3<sup>rd</sup> party component to take responsibility for the creation and destruction of your objects. If developers are used to a more procedural view on the code i.e. with all object creation in-line (and generally mixed in with all the business logic!) then it can take a while to get used to allowing a library to manage this for you.This You can make life easier by implementing some conventions within your applications e.g. all DI configuration occurs in the same fashion e.g. installers co-located in a single place. I&#8217;m afraid comes down to practice again!
   7. **Dependency Injection costs us too much performance** &#8211; How much is too much performance? This is a question only you can answer. As was mentioned in the valid justifications list, you need to know your own domain and be aware of the limitations that are imposed. My general view on this is that anything developers can do to minimise complexity and the time taken to understand and modify the code after the fact should be encouraged wholeheartedly. Generally most software solutions can handle the small amount of latency introduced by using a DI container. However, this is something that you may need to pay special attention to by profiling you application when it is running to truly understand where the time is going and not just assume that its the DI&#8217;s fault.,
 
-&nbsp;
-
-### What are you waiting for?
+## What are you waiting for?
 
 Pick a framework and start practising, there are certainly plenty to choose from!
