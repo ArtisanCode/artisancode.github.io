@@ -968,6 +968,21 @@ li {
     margin-top: 5px;
 }
 
+.timeline-title-logo {
+    background-color: #fff;
+}
+
+.timeline-logo {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.timeline-date{
+    font-size: 50%;
+}
+
 @media (max-width: 767px) {
     ul.timeline:before {
         left: 40px;

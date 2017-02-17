@@ -101,14 +101,13 @@ This is the area where I talk a little bit about myself, what I believe in (from
           </div>
         </li>
         <li class="timeline-inverted">
-          <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+          <div class="timeline-badge timeline-date" style="background-color:#242A74!important;">2011</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title blog-image" style="background-color:#FFF;"><a href="https://www.thalesgroup.com/en"><img class="blog-image"  src="/content/2015/thales-logo.png" title="About" alt="Thales logo" /></a></h4>
+              <h4 class="timeline-title timeline-title-logo" style="background-color:#FFF;"><a href="https://www.thalesgroup.com/en"><img class="timeline-logo"  src="/content/2015/thales-logo.png" title="About" alt="Thales logo" /></a></h4>
               <p><small>Software Engineer: Sept 2006 – July 2011</small></p>
             </div>
-            <div class="timeline-body">
-             
+            <div class="timeline-body">             
               <p>Completed the 4 year IET accredited Thales UK graduate programme. The role required me to develop software for varying target platforms within the radio communications industry. The job required me to take on increasing levels of responsibility throughout the duration and allowed me to act as the technical lead on small projects.</p>
             </div>
           </div>
