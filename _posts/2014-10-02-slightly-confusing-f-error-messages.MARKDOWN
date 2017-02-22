@@ -1,5 +1,5 @@
 ---
-id: 210
+_id: 210
 title: 'Slightly confusing F# error messages'
 slug: slightly-confusing-f-error-messages
 date: 2014-10-02T13:25:49+00:00

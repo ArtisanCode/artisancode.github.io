@@ -19,7 +19,7 @@ layout: default
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 col-sm-12">
 
-				{{ content }}
+				        {{ content }}
                 {% for category in page.categories %}
                   {% assign moreThanOneInCategory = false %}
                   {% assign posts = site.categories[category] %}
@@ -46,12 +46,13 @@ layout: default
                     </div>
                   {% endif %}
                 {% endfor %}
+                
                 <hr/>
                 <div id="disqus_thread"></div>
                 <script>
                     var disqus_config = function () {
                     this.page.url = '{{site.url}}{{page.url}}';  // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.identifier = '{{site.url}}{{page.id}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    this.page.identifier = '{{page._id}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                     };
                     (function() { // DON'T EDIT BELOW THIS LINE
                     var d = document, s = d.createElement('script');

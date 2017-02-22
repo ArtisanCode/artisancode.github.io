@@ -1,5 +1,5 @@
 ---
-id: 195
+_id: 195
 title: Effective testing with mocks
 slug: effective-testing-with-mocks
 date: 2014-07-31T20:15:03+00:00

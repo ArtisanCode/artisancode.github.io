@@ -1,5 +1,5 @@
 ---
-id: 99
+_id: 99
 title: Integrating Windsor.Castle with Web API
 date: 2014-04-19T21:08:44+00:00
 author: Tom Kuhn

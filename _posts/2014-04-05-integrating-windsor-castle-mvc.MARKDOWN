@@ -1,5 +1,5 @@
 ---
-id: 72
+_id: 72
 title: Integrating Windsor.Castle with ASP.Net MVC
 date: 2014-04-05T16:24:23+00:00
 author: Tom Kuhn

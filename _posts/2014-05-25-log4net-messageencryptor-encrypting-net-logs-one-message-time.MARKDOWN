@@ -1,5 +1,5 @@
 ---
-id: 150
+_id: 150
 title: 'Log4Net.MessageEncryptor &#8211; Encrypting .NET logs one message at a time'
 date: 2014-05-25T20:30:55+00:00
 author: Tom Kuhn

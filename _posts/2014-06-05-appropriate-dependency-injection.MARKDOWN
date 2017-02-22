@@ -1,5 +1,5 @@
 ---
-id: 161
+_id: 161
 title: 'Dependency Injection: When is it appropriate to use?'
 date: 2014-06-05T18:16:38+00:00
 author: Tom Kuhn
