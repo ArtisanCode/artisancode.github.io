@@ -19,7 +19,7 @@ This is the area where I talk a little bit about myself, what I believe in (from
   <div class="col-md-9">
     <p>
       <strong>Senior software engineer – Bupa (July 2011 – Present)</strong><br /> Currently developing solutions for different areas of the medical healthcare/insurance industry such as claims, financial applications and mission critical business systems. A fundamental component of the job is to help provide technical direction for projects and cascade key decisions to appropriate stakeholders. This role is focused on improving all aspects of the software development process. This is achieved by mentoring junior team members, communicating best practices to other Bupa scrums and helping to develop Bupa’s software quality standards.
-    </p></p>
+    </p>
   </div>
 </div>
 
@@ -31,7 +31,7 @@ This is the area where I talk a little bit about myself, what I believe in (from
   <div class="col-md-9">
     <p>
       <strong>Software engineer – Thales (Sept 2006 – July 2011).</strong><br /> Completed the 4 year IET accredited Thales UK graduate programme. The role required me to develop software for varying target platforms within the radio communications industry. The job required me to take on increasing levels of responsibility throughout the duration and allowed me to act as the technical lead on small projects.
-    </p></p>
+    </p>
   </div>
 </div>
 
