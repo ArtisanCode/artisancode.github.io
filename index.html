@@ -5,7 +5,7 @@ description: "Software craftsmanship by design"
 
 {% for post in paginator.posts %}
 <div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread">
+    <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
             {{ post.title }}
         </h2>
@@ -15,7 +15,10 @@ description: "Software craftsmanship by design"
         </h3>
         {% endif %}
     </a>
-    <p class="post-meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
+    <p class="post-meta">
+        Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}<br/>
+        <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread">
+    </p>    
     <p>{{ post.excerpt | strip_html }}</p>
     {% for category in post.categories %}
         <a class="btn btn-default btn-sm category-button" href="/categories/#{{ category }}" role="button">
