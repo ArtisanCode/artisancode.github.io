@@ -16,8 +16,7 @@ description: "Software craftsmanship by design"
         {% endif %}
     </a>
     <p class="post-meta">
-        Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}<br/>
-        <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a>
+        Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }} (<a href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a>)
     </p>
     <p>{{ post.excerpt | strip_html }}</p>
     {% for category in post.categories %}
