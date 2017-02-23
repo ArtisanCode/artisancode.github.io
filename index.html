@@ -15,10 +15,8 @@ description: "Software craftsmanship by design"
         </h3>
         {% endif %}
     </a>
-    <p class="post-meta">
-        Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }} (<a href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a>)
-    </p>
-    <p>{{ post.excerpt | strip_html }}</p>
+    <p class="post-meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
+    <p>{{ post.excerpt | strip_html }}<br/><a href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a></p>
     {% for category in post.categories %}
         <a class="btn btn-default btn-sm category-button" href="/categories/#{{ category }}" role="button">
         {% assign categoryNum = site.categories[category].size %}
